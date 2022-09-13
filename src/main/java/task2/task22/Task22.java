@@ -17,11 +17,7 @@ public class Task22 {
     private static void findSummands(int[] input, int sum) {
 
         boolean isResult = false;
-        if (input == null) {
-            System.out.println("Отсутствует массив для анализа");
-        } else if (input.length < 2) {
-            System.out.println("Массив должен содержать не менее 2-ух элементов");
-        } else {
+        if (validateInputArray(input) == true) {
             Arrays.sort(input);
             for (int i = 0, j = input.length - 1; i < j; ) {
                 if (input[i] + input[j] == sum) {
@@ -38,6 +34,17 @@ public class Task22 {
                 System.out.println("Массив не содержит подходящей пары элементов");
             }
         }
+    }
+
+    private static boolean validateInputArray(int[] inputArray) {
+        if (inputArray == null) {
+            System.out.println("Отсутствует массив для анализа");
+        } else if (inputArray.length < 2) {
+            System.out.println("Массив должен содержать не менее 2-ух элементов");
+        } else {
+            return true;
+        }
+        return false;
     }
 
 }

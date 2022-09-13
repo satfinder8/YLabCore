@@ -22,10 +22,7 @@ public class Task23 {
 
     private static boolean fuzzySearch(String a, String b) {
 
-        if (Objects.isNull(a) || Objects.isNull(b)) {
-            System.out.println("Ошибка! Оба аргумента должны являться действительными строками");
-            return false;
-        } else {
+        if (validateInputData(a, b) == true) {
 
             int testStrIdx = 0;
             for (int checkStrIdx = 0; checkStrIdx < a.length(); checkStrIdx++) {
@@ -46,7 +43,15 @@ public class Task23 {
                     }
                 }
             }
+        }
+        return false;
+    }
+
+    private static boolean validateInputData(String a, String b) {
+        if (Objects.isNull(a) || Objects.isNull(b)) {
+            System.out.println("Ошибка! Оба аргумента должны являться действительными строками");
             return false;
         }
+        return true;
     }
 }
